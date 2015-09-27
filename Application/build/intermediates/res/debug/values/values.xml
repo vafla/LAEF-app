@@ -159,14 +159,12 @@
     <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
     <!-- From: file:/C:/Users/Public/workspace/LAEF-app/Application/src/main/res/values/base-strings.xml -->
     <eat-comment/>
-    <string name="app_name">ActionBarCompat-Styled</string>
+    <string name="app_name">LAEF app</string>
     <string name="intro_message">
         <![CDATA[
         
             
-            This sample shows you how to use ActionBarCompat with a customized theme. It utilizes a
-            split action bar when running on a device with a narrow display, and show three tabs.
-            
+            Hæ Ásta, ég elska þig :-*
         
         ]]>
     </string>
