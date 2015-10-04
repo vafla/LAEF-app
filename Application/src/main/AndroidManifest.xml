@@ -18,10 +18,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.android.actionbarcompat.styled"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="1.0"
+    android:installLocation="auto">
 
     <!-- Min/target SDK versions (<uses-sdk>) managed by build.gradle -->
-
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"></uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
     <!--
         Theme is set on the application so that our custom theme is used by
         default by all Activities

@@ -3,8 +3,9 @@ package framework;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
+import android.util.Log;
 
-import java.io.File;
+import java.io.InputStream;
 import java.util.List;
 
 import jxl.Cell;
@@ -17,11 +18,13 @@ import jxl.read.biff.BiffException;
 /**
  * Created by Ásta Lovísa on 27.9.2015.
  */
+
+
 public class ExcelLoader {
 
-    //classmemberss.
+    //classmembers.
     String m_filename;
-
+    String TAG = "Workbook";
     //constructor
     public ExcelLoader(String filename) {
         this.m_filename = filename;
@@ -29,11 +32,14 @@ public class ExcelLoader {
 
     @TargetApi(Build.VERSION_CODES.FROYO)
     public void loadFile(Context context, List<ParticipantInfo> participantInfoList) {
-        try {
-            File file = new File(context.getExternalFilesDir(null), m_filename);
-            if (file.exists()) {
-                Workbook workbook = Workbook.getWorkbook(file);
 
+        Log.d(TAG, "Loading file: " + m_filename);
+        try {
+            InputStream file = context.getAssets().open(m_filename);
+            Log.d(TAG, m_filename + " has been loaded");
+            // if (file.available()!=0) {
+                Workbook workbook = Workbook.getWorkbook(file);
+            Log.d(TAG, "Creating workbook");
                 Sheet sheet = workbook.getSheet(0);
                 int namePosition = 0, organisationPosition = 0, countryPosition = 0;
                 for (int col = 0; col < sheet.getColumns(); col++) {
@@ -59,10 +65,12 @@ public class ExcelLoader {
 
 
                 }
-            }
+            //}
         } catch (BiffException e) {
+            Log.d(TAG, e.toString());
             e.printStackTrace();
         } catch (Exception e) {
+            Log.d(TAG, e.toString());
             e.printStackTrace();
         }
     }

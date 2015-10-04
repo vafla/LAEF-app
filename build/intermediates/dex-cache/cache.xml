@@ -2,11 +2,11 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Public\workspace\LAEF-app\Application\build\intermediates\exploded-aar\com.android.support\appcompat-v7\18.0.0\jars\classes.jar"
+        jar="C:\Users\Ásta Lovísa\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.0.0\support-annotations-23.0.0.jar"
         jumboMode="false"
-        revision="23.0.0"
-        sha1="8f11f56e350eacabf2273f646d981356eea0ed77">
-        <dex dex="C:\Users\Public\workspace\LAEF-app\Application\build\intermediates\pre-dexed\debug\classes-fd265c9f4021b07b0e586d260040470d62bb8f80.jar" />
+        revision="23.0.0" sha1="990e7f98a7bad86a40b1f0bcfeb039023afd0839">
+        <dex
+            dex="C:\Users\Public\workspace\LAEF-app\Application\build\intermediates\pre-dexed\debug\support-annotations-23.0.0-329b08ed9f6bbbf8aef588014ff152c5a340ee45.jar" />
     </item>
     <item
         jar="C:\Users\Public\workspace\LAEF-app\Application\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.0\jars\classes.jar"
@@ -22,6 +22,11 @@
         sha1="1618fd467fb5971c394741e8976ededb97aaee0a">
         <dex dex="C:\Users\Public\workspace\LAEF-app\Application\build\intermediates\pre-dexed\debug\classes-0b43f6e51755f6c5e19661ee23143a7e8ddcfae0.jar" />
     </item>
+    <item jar="C:\Users\Public\workspace\LAEF-app\jxl\jxl.jar" jumboMode="false" revision="23.0.0"
+        sha1="7faf62e0697f7a88954622dfe8c8de33ed142ac7">
+        <dex
+            dex="C:\Users\Public\workspace\LAEF-app\Application\build\intermediates\pre-dexed\debug\jxl-6233509b68bc3e2111d5db5b78b45505663d4c37.jar" />
+    </item>
     <item
         jar="C:\Users\Public\workspace\LAEF-app\Application\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.0\jars\libs\internal_impl-23.0.0.jar"
         jumboMode="false"
@@ -30,18 +35,18 @@
         <dex dex="C:\Users\Public\workspace\LAEF-app\Application\build\intermediates\pre-dexed\debug\internal_impl-23.0.0-ef101c025dba92d3d2da48aa7bb56892feb35651.jar" />
     </item>
     <item
-        jar="C:\Users\Public\workspace\LAEF-app\Application\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.0.0\jars\classes.jar"
+        jar="C:\Users\Public\workspace\LAEF-app\Application\build\intermediates\exploded-aar\com.android.support\appcompat-v7\18.0.0\jars\classes.jar"
         jumboMode="false"
-        revision="23.0.0"
-        sha1="1ccbc26be2c465c622a48310e8092241b01abe80">
-        <dex dex="C:\Users\Public\workspace\LAEF-app\Application\build\intermediates\pre-dexed\debug\classes-f7b1c5cb933400fed73726c3656841d81cfe258a.jar" />
+        revision="23.0.0" sha1="8f11f56e350eacabf2273f646d981356eea0ed77">
+        <dex
+            dex="C:\Users\Public\workspace\LAEF-app\Application\build\intermediates\pre-dexed\debug\classes-fd265c9f4021b07b0e586d260040470d62bb8f80.jar" />
     </item>
     <item
-        jar="C:\Users\Ásta Lovísa\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.0.0\support-annotations-23.0.0.jar"
+        jar="C:\Users\Public\workspace\LAEF-app\Application\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.0.0\jars\classes.jar"
         jumboMode="false"
-        revision="23.0.0"
-        sha1="990e7f98a7bad86a40b1f0bcfeb039023afd0839">
-        <dex dex="C:\Users\Public\workspace\LAEF-app\Application\build\intermediates\pre-dexed\debug\support-annotations-23.0.0-329b08ed9f6bbbf8aef588014ff152c5a340ee45.jar" />
+        revision="23.0.0" sha1="1ccbc26be2c465c622a48310e8092241b01abe80">
+        <dex
+            dex="C:\Users\Public\workspace\LAEF-app\Application\build\intermediates\pre-dexed\debug\classes-f7b1c5cb933400fed73726c3656841d81cfe258a.jar" />
     </item>
 
 </items>

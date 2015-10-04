@@ -22,6 +22,12 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import framework.ExcelLoader;
+import framework.ParticipantInfo;
+
 /**
  * This sample shows you how to use ActionBarCompat with a customized theme. It utilizes a split
  * action bar when running on a device with a narrow display, and show three tabs.
@@ -37,10 +43,18 @@ import android.view.Menu;
  */
 public class MainActivity extends ActionBarActivity implements ActionBar.TabListener {
 
+    List<ParticipantInfo> m_participantInfoList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sample_main);
+
+        //String with file name + loading file
+        String filename = "mockSheet.xls";
+        m_participantInfoList = new ArrayList<ParticipantInfo>();
+        ExcelLoader excelLoader = new ExcelLoader(filename);
+        excelLoader.loadFile(getApplicationContext(), m_participantInfoList);
 
         // Set the Action Bar to use tabs for navigation
         ActionBar ab = getSupportActionBar();
@@ -50,6 +64,8 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
         ab.addTab(ab.newTab().setText("Country").setTabListener(this));
         ab.addTab(ab.newTab().setText("Organisation").setTabListener(this));
         ab.addTab(ab.newTab().setText("Name").setTabListener(this));
+
+
     }
 
     @Override
@@ -64,6 +80,20 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
     @Override
     public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
         // This is called when a tab is selected.
+        ActionBar actionBar = getSupportActionBar();
+        switch (tab.getPosition()) {
+            case 0:
+                actionBar.setTitle(m_participantInfoList.get(0).getCountry());
+                break;
+            case 1:
+                actionBar.setTitle(m_participantInfoList.get(0).getOrganisation());
+                break;
+            case 2:
+                actionBar.setTitle(m_participantInfoList.get(0).getName());
+                break;
+            default:
+                break;
+        }
     }
 
     // Implemented from ActionBar.TabListener
