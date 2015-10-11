@@ -317,6 +317,7 @@ int id checkbox 0x7f0a003c
 int id clip_horizontal 0x7f0a0015
 int id clip_vertical 0x7f0a0016
 int id collapseActionView 0x7f0a0023
+int id container 0x7f0a0053
 int id default_activity_button 0x7f0a0037
 int id dialog 0x7f0a0027
 int id disableHome 0x7f0a0007
@@ -338,9 +339,9 @@ int id left 0x7f0a001b
 int id left_icon 0x7f0a0042
 int id listMode 0x7f0a0004
 int id list_item 0x7f0a0038
-int id menu_location 0x7f0a0054
-int id menu_refresh 0x7f0a0053
-int id menu_settings 0x7f0a0055
+int id menu_location 0x7f0a0055
+int id menu_refresh 0x7f0a0054
+int id menu_settings 0x7f0a0056
 int id middle 0x7f0a0020
 int id never 0x7f0a0025
 int id none 0x7f0a0021
@@ -402,8 +403,10 @@ int layout abc_popup_menu_item_layout 0x7f030014
 int layout abc_screen 0x7f030015
 int layout abc_search_dropdown_item_icons_2line 0x7f030016
 int layout abc_search_view 0x7f030017
-int layout sample_main 0x7f030018
-int layout support_simple_spinner_dropdown_item 0x7f030019
+int layout listview 0x7f030018
+int layout mainactivity 0x7f030019
+int layout sample_main 0x7f03001a
+int layout support_simple_spinner_dropdown_item 0x7f03001b
 int menu main 0x7f0c0000
 int string abc_action_bar_home_description 0x7f0b0000
 int string abc_action_bar_up_description 0x7f0b0001

@@ -19,5 +19,6 @@
     android:layout_height="match_parent"
     android:text="@string/main_description"
     android:padding="16dp"
-    android:gravity="center"/>
+    android:gravity="center" />
+
 

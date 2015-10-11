@@ -19,6 +19,7 @@
     android:layout_height="match_parent"
     android:text="@string/main_description"
     android:padding="16dp"
-    android:gravity="center"/>
+    android:gravity="center" />
+
 
 <!-- From: file:/C:/Users/Public/workspace/LAEF-app/Application/src/main/res/layout/sample_main.xml -->

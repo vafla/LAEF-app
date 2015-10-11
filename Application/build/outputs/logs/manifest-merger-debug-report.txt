@@ -14,9 +14,9 @@ ADDED from AndroidManifest.xml:18:1
 	android:installLocation
 		ADDED from AndroidManifest.xml:22:5
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from AndroidManifest.xml:25:1
+ADDED from AndroidManifest.xml:25:5
 	android:name
-		ADDED from AndroidManifest.xml:25:18
+		ADDED from AndroidManifest.xml:25:22
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
 ADDED from AndroidManifest.xml:26:5
 	android:name

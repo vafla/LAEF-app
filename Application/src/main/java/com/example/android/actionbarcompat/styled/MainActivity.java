@@ -48,7 +48,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sample_main);
+        setContentView(R.layout.mainactivity);
 
         //String with file name + loading file
         String filename = "mockSheet.xls";
@@ -62,6 +62,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
 
         // Add three tabs to the Action Bar for display
         ab.addTab(ab.newTab().setText("Country").setTabListener(this));
+
         ab.addTab(ab.newTab().setText("Organisation").setTabListener(this));
         ab.addTab(ab.newTab().setText("Name").setTabListener(this));
 
@@ -80,16 +81,29 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
     @Override
     public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
         // This is called when a tab is selected.
-        ActionBar actionBar = getSupportActionBar();
         switch (tab.getPosition()) {
             case 0:
-                actionBar.setTitle(m_participantInfoList.get(0).getCountry());
+                CountryListener countryListener = new CountryListener();
+                countryListener.setArguments(ContentHandlerFactory("Country"));
+
+                getSupportFragmentManager().beginTransaction().replace(R.id.container,
+                        countryListener).commit();
+
                 break;
             case 1:
-                actionBar.setTitle(m_participantInfoList.get(0).getOrganisation());
+                OrganisationFragment organisationFragment = new OrganisationFragment();
+                organisationFragment.setArguments(ContentHandlerFactory("Organisation"));
+
+                getSupportFragmentManager().beginTransaction().replace(R.id.container,
+                        organisationFragment).commit();
+
                 break;
             case 2:
-                actionBar.setTitle(m_participantInfoList.get(0).getName());
+                NameFragment nameFragment = new NameFragment();
+                nameFragment.setArguments(ContentHandlerFactory("Name"));
+
+                getSupportFragmentManager().beginTransaction().replace(R.id.container,
+                        nameFragment).commit();
                 break;
             default:
                 break;
@@ -106,5 +120,22 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
     @Override
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
         // This is called when a previously selected tab is selected again.
+    }
+
+    private Bundle ContentHandlerFactory(String key) {
+        Bundle contentBundle = new Bundle();
+        String[] stringArray = new String[m_participantInfoList.size()];
+        for (int i = 0; i < m_participantInfoList.size(); i++) {
+            if (key == "Country") {
+                stringArray[i] = m_participantInfoList.get(i).getCountry();
+            } else if (key == "Organisation") {
+                stringArray[i] = m_participantInfoList.get(i).getOrganisation();
+            } else if (key == "Name") {
+                stringArray[i] = m_participantInfoList.get(i).getName();
+            }
+
+        }
+        contentBundle.putStringArray(key, stringArray);
+        return contentBundle;
     }
 }
