@@ -1,7 +1,5 @@
-package com.example.android.actionbarcompat.styled;
+package framework;
 
-import android.annotation.TargetApi;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.util.Log;
@@ -13,30 +11,28 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.android.actionbarcompat.styled.R;
+
 /**
- * Created by Ásta Lovísa on 11.10.2015.
+ * Created by lovisa on 10/16/15.
  */
-@TargetApi(Build.VERSION_CODES.HONEYCOMB)
-public class CountryListener extends ListFragment {
+public abstract class AbstractListFragment extends ListFragment {
 
-    private String[] m_countryList;
+    protected String[] m_list;
 
-    public CountryListener() {
-
-    }
+    protected String FRAGMENT_NAME;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         ListAdapter listAdapter = new ArrayAdapter<String>(getActivity(),
-                android.R.layout.simple_list_item_1, m_countryList);
+                android.R.layout.simple_list_item_1, m_list);
         setListAdapter(listAdapter);
     }
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
-        Log.d("Country Listener", getListView().getItemAtPosition(position).toString());
         Toast.makeText(getActivity(), getListView().getItemAtPosition(position).toString(),
                 Toast.LENGTH_LONG).show();
     }
@@ -49,15 +45,13 @@ public class CountryListener extends ListFragment {
     @Override
     public void setArguments(Bundle args) {
         try {
-            m_countryList = new String[args.getStringArray("Country").length];
-            for (int i = 0; i < args.getStringArray("Country").length;
+            m_list = new String[args.getStringArray(FRAGMENT_NAME).length];
+            for (int i = 0; i < args.getStringArray(FRAGMENT_NAME).length;
                  i++) {
-                m_countryList[i] = args.getStringArray("Country")[i];
+                m_list[i] = args.getStringArray(FRAGMENT_NAME)[i];
             }
         } catch (Exception e) {
-            Log.e("CountryListener", e.toString());
+            Log.e(FRAGMENT_NAME, e.toString());
         }
     }
-
-
 }

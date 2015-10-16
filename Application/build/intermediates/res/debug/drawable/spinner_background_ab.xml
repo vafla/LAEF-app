@@ -29,4 +29,4 @@
         android:state_pressed="false" />
     <item android:drawable="@drawable/spinner_ab_default_styled" />
 
-</selector><!-- From: file:/C:/Users/Public/workspace/LAEF-app/Application/src/main/res/drawable/spinner_background_ab.xml -->
+</selector><!-- From: file:/home/lovisa/workspace/apps/LAEF-app/Application/src/main/res/drawable/spinner_background_ab.xml -->
