@@ -47,4 +47,4 @@
     <item android:drawable="@drawable/tab_selected_pressed_styled" android:state_focused="true"
         android:state_pressed="true" android:state_selected="true" />
 
-</selector><!-- From: file:/C:/Users/Public/workspace/LAEF-app/Application/src/main/res/drawable/tab_indicator_ab.xml -->
+</selector><!-- From: file:/home/lovisa/workspace/apps/LAEF-app/Application/src/main/res/drawable/tab_indicator_ab.xml -->
