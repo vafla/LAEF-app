@@ -11,6 +11,8 @@ public class CountryFragment extends AbstractListFragment {
 
     public CountryFragment() {
         FRAGMENT_NAME = "Country";
+        NEXT_TAB_NUMBER = 1;
     }
+
 
 }

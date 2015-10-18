@@ -20,10 +20,14 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 import framework.ExcelLoader;
 import framework.ParticipantInfo;
@@ -44,6 +48,11 @@ import framework.ParticipantInfo;
 public class MainActivity extends ActionBarActivity implements ActionBar.TabListener {
 
     List<ParticipantInfo> m_participantInfoList;
+    String m_filterItem = null;
+    CountryFragment countryFragment = new CountryFragment();
+    OrganisationFragment organisationFragment = new OrganisationFragment();
+    NameFragment nameFragment = new NameFragment();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,9 +71,9 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
 
         // Add three tabs to the Action Bar for display
         ab.addTab(ab.newTab().setText("Country").setTabListener(this));
-
         ab.addTab(ab.newTab().setText("Organisation").setTabListener(this));
         ab.addTab(ab.newTab().setText("Name").setTabListener(this));
+
 
 
     }
@@ -83,27 +92,26 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
         // This is called when a tab is selected.
         switch (tab.getPosition()) {
             case 0:
-                CountryFragment countryFragment = new CountryFragment();
                 countryFragment.setArguments(ContentHandlerFactory("Country"));
 
                 getSupportFragmentManager().beginTransaction().replace(R.id.container,
                         countryFragment).commit();
+                Log.d("MainActivity", "onTabSelect country");
 
                 break;
             case 1:
-                OrganisationFragment organisationFragment = new OrganisationFragment();
                 organisationFragment.setArguments(ContentHandlerFactory("Organisation"));
-
                 getSupportFragmentManager().beginTransaction().replace(R.id.container,
                         organisationFragment).commit();
+                Log.d("MainActivity", "onTabSelect organisation");
 
                 break;
             case 2:
-                NameFragment nameFragment = new NameFragment();
                 nameFragment.setArguments(ContentHandlerFactory("Name"));
 
                 getSupportFragmentManager().beginTransaction().replace(R.id.container,
                         nameFragment).commit();
+                Log.d("MainActivity", "onTabSelect name");
                 break;
             default:
                 break;
@@ -114,12 +122,16 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
     @Override
     public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
         // This is called when a previously selected tab is unselected.
+        //setFilterItem(null);
+        Log.d("MainActivity", "onTabUnselected");
     }
 
     // Implemented from ActionBar.TabListener
     @Override
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
         // This is called when a previously selected tab is selected again.
+        Log.d("MainActivity", "onTabReselect");
+        setFilterItem(null);
     }
 
     private Bundle ContentHandlerFactory(String key) {
@@ -129,13 +141,34 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
             if (key == "Country") {
                 stringArray[i] = m_participantInfoList.get(i).getCountry();
             } else if (key == "Organisation") {
-                stringArray[i] = m_participantInfoList.get(i).getOrganisation();
+                if (m_filterItem != null) {
+
+                    if (m_participantInfoList.get(i).getCountry() == m_filterItem) {
+                        Log.d("MainActivity", m_participantInfoList.get(i).getOrganisation());
+                        stringArray[i] = m_participantInfoList.get(i).getOrganisation();
+                    }
+                } else {
+                    stringArray[i] = m_participantInfoList.get(i).getOrganisation();
+                }
             } else if (key == "Name") {
-                stringArray[i] = m_participantInfoList.get(i).getName();
+                if (m_filterItem != null) {
+                    if (m_participantInfoList.get(i).getOrganisation() == m_filterItem) {
+                        stringArray[i] = m_participantInfoList.get(i).getName();
+                    }
+                } else {
+                    stringArray[i] = m_participantInfoList.get(i).getName();
+                }
             }
 
         }
-        contentBundle.putStringArray(key, stringArray);
+        Set<String> temp = new LinkedHashSet<String>(Arrays.asList(stringArray));
+        String[] result = temp.toArray(new String[temp.size()]);
+        contentBundle.putStringArray(key, result);
         return contentBundle;
+    }
+
+    public void setFilterItem(String filterItem) {
+        Log.d("MainActivity", filterItem);
+        m_filterItem = filterItem;
     }
 }
