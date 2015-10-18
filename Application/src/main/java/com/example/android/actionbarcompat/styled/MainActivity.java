@@ -83,11 +83,11 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
         // This is called when a tab is selected.
         switch (tab.getPosition()) {
             case 0:
-                CountryListener countryListener = new CountryListener();
-                countryListener.setArguments(ContentHandlerFactory("Country"));
+                CountryFragment countryFragment = new CountryFragment();
+                countryFragment.setArguments(ContentHandlerFactory("Country"));
 
                 getSupportFragmentManager().beginTransaction().replace(R.id.container,
-                        countryListener).commit();
+                        countryFragment).commit();
 
                 break;
             case 1:

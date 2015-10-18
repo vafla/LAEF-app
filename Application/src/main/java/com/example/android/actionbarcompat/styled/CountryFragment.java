@@ -5,11 +5,12 @@ import framework.AbstractListFragment;
 /**
  * Created by Ásta Lovísa on 11.10.2015.
  */
-public class NameFragment extends AbstractListFragment {
 
-    public NameFragment() {
+public class CountryFragment extends AbstractListFragment {
 
-        FRAGMENT_NAME = "Name";
+
+    public CountryFragment() {
+        FRAGMENT_NAME = "Country";
     }
 
 }
