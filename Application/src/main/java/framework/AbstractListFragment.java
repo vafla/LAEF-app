@@ -2,6 +2,7 @@ package framework;
 
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
+import android.support.v7.app.ActionBar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,8 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
+import com.example.android.actionbarcompat.styled.MainActivity;
 import com.example.android.actionbarcompat.styled.R;
 
 /**
@@ -18,9 +19,10 @@ import com.example.android.actionbarcompat.styled.R;
  */
 public abstract class AbstractListFragment extends ListFragment {
 
-    protected String[] m_list;
+    protected String[] m_list = {};
 
     protected String FRAGMENT_NAME;
+    protected int NEXT_TAB_NUMBER;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,8 +35,11 @@ public abstract class AbstractListFragment extends ListFragment {
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
-        Toast.makeText(getActivity(), getListView().getItemAtPosition(position).toString(),
-                Toast.LENGTH_LONG).show();
+        Log.d("AbstractFragment", "onListItemClick");
+        ((MainActivity) getActivity()).setFilterItem(getListView().getItemAtPosition(position).toString());
+        ActionBar.Tab tab = ((MainActivity) getActivity()).getSupportActionBar().getTabAt(NEXT_TAB_NUMBER);
+        ((MainActivity) getActivity()).getSupportActionBar().selectTab(tab);
+
     }
 
     @Override
@@ -52,6 +57,13 @@ public abstract class AbstractListFragment extends ListFragment {
             }
         } catch (Exception e) {
             Log.e(FRAGMENT_NAME, e.toString());
+        }
+
+        ArrayAdapter<String> adapter = (ArrayAdapter<String>) getListAdapter();
+        if (adapter != null) {
+            adapter.clear();
+            adapter.addAll(m_list);
+            adapter.notifyDataSetChanged();
         }
     }
 }

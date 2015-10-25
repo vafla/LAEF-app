@@ -10,6 +10,7 @@ public class OrganisationFragment extends AbstractListFragment {
     public OrganisationFragment() {
 
         FRAGMENT_NAME = "Organisation";
+        NEXT_TAB_NUMBER = 2;
     }
 
 
