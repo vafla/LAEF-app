@@ -29,4 +29,4 @@
     <item android:drawable="@drawable/pressed_background" android:state_pressed="true"/>
     <item android:drawable="@android:color/transparent"/>
 
-</selector><!-- From: file:/home/lovisa/workspace/apps/LAEF-app/Application/src/main/res/drawable/selectable_background.xml -->
+</selector><!-- From: file:/C:/Users/Public/workspace/LAEF-app/Application/src/main/res/drawable/selectable_background.xml -->

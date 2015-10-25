@@ -23,4 +23,6 @@
         styled.
     </string>
 
+    <string name="close_button">close</string>
+
 </resources>
