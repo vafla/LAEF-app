@@ -1,5 +1,6 @@
 package com.example.android.actionbarcompat.styled;
 
+import database.ParticipantContract.Organisation;
 import framework.AbstractListFragment;
 
 /**
@@ -8,8 +9,11 @@ import framework.AbstractListFragment;
 public class OrganisationFragment extends AbstractListFragment {
 
     public OrganisationFragment() {
+        CONTENT_URI = Organisation.CONTENT_URI;
+        PROJECTION = Organisation.PROJECTION_ALL;
+        SORT_ORDER = Organisation.SORT_ORDER_DEFAULT;
 
-        FRAGMENT_NAME = "Organisation";
+        displayedRows = new String[]{Organisation.ORGANISATION};
         NEXT_TAB_NUMBER = 2;
     }
 

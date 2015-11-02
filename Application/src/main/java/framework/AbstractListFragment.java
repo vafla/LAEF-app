@@ -1,45 +1,51 @@
 package framework;
 
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
+import android.support.v4.app.LoaderManager;
+import android.support.v4.content.CursorLoader;
+import android.support.v4.content.Loader;
+import android.support.v4.widget.SimpleCursorAdapter;
 import android.support.v7.app.ActionBar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import com.example.android.actionbarcompat.styled.MainActivity;
 import com.example.android.actionbarcompat.styled.R;
 
+
 /**
  * Created by lovisa on 10/16/15.
  */
-public abstract class AbstractListFragment extends ListFragment {
+public abstract class AbstractListFragment extends ListFragment implements LoaderManager.LoaderCallbacks<Cursor> {
 
-    protected String[] m_list = {};
+    protected Uri CONTENT_URI;
+    protected String[] PROJECTION;
+    protected String SORT_ORDER;
 
-    protected String FRAGMENT_NAME;
+    protected String[] displayedRows;
+
     protected int NEXT_TAB_NUMBER;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        ListAdapter listAdapter = new ArrayAdapter<String>(getActivity(),
-                android.R.layout.simple_list_item_1, m_list);
-        setListAdapter(listAdapter);
-    }
+    private SimpleCursorAdapter simpleCursorAdapter;
 
     @Override
-    public void onListItemClick(ListView l, View v, int position, long id) {
-        Log.d("AbstractFragment", "onListItemClick");
-        ((MainActivity) getActivity()).setFilterItem(getListView().getItemAtPosition(position).toString());
-        ActionBar.Tab tab = ((MainActivity) getActivity()).getSupportActionBar().getTabAt(NEXT_TAB_NUMBER);
-        ((MainActivity) getActivity()).getSupportActionBar().selectTab(tab);
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
 
+        int[] bindingFields = {android.R.id.text1};
+
+        // Create a sumple cursor adapter and set it to display
+        simpleCursorAdapter = new SimpleCursorAdapter(getActivity(),
+                android.R.layout.simple_list_item_1, null, displayedRows, bindingFields, 0);
+
+        setListAdapter(simpleCursorAdapter);
+        getLoaderManager().initLoader(0, null, this);
     }
 
     @Override
@@ -48,22 +54,27 @@ public abstract class AbstractListFragment extends ListFragment {
     }
 
     @Override
-    public void setArguments(Bundle args) {
-        try {
-            m_list = new String[args.getStringArray(FRAGMENT_NAME).length];
-            for (int i = 0; i < args.getStringArray(FRAGMENT_NAME).length;
-                 i++) {
-                m_list[i] = args.getStringArray(FRAGMENT_NAME)[i];
-            }
-        } catch (Exception e) {
-            Log.e(FRAGMENT_NAME, e.toString());
-        }
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        Log.d("AbstractFragment", "onListItemClick");
+        ActionBar.Tab tab = ((MainActivity) getActivity()).getSupportActionBar().getTabAt(NEXT_TAB_NUMBER);
+        ((MainActivity) getActivity()).getSupportActionBar().selectTab(tab);
 
-        ArrayAdapter<String> adapter = (ArrayAdapter<String>) getListAdapter();
-        if (adapter != null) {
-            adapter.clear();
-            adapter.addAll(m_list);
-            adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+        return new CursorLoader(getActivity(), CONTENT_URI, PROJECTION, null, null, SORT_ORDER);
+    }
+
+    @Override
+    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+        if (getListAdapter() != null) {
+            ((SimpleCursorAdapter) this.getListAdapter()).swapCursor(data);
         }
+    }
+
+    @Override
+    public void onLoaderReset(Loader<Cursor> loader) {
+        ((SimpleCursorAdapter) this.getListAdapter()).swapCursor(null);
     }
 }

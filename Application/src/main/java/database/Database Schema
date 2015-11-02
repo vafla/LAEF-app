@@ -1,0 +1,19 @@
+SQL:
+
+CREATE TABLE countries (
+        country_id INTEGER PRIMARY KEY,
+        name TEXT NOT NULL
+        );
+
+CREATE TABLE organisations(
+    organisation_id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL
+    );
+
+CREATE TABLE participant (
+    participant_id INTEGER PRIMARY KEY,
+    country_id INTEGER NOT NULL,
+    organisation_id NOT NULL,
+    name TEXT NOT NULL,
+    description TEXT
+    );

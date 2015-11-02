@@ -21,7 +21,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="7"
+        android:minSdkVersion="8"
         android:targetSdkVersion="23" />
 
     <!-- Min/target SDK versions (<uses-sdk>) managed by build.gradle -->
@@ -54,6 +54,11 @@
                 android:name="android.support.UI_OPTIONS"
                 android:value="splitActionBarWhenNarrow" />
         </activity>
+
+        <provider
+            android:name="database.ParticipantProvider"
+            android:authorities="database.participants"
+            android:exported="false" />
     </application>
 
 </manifest>
