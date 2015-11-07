@@ -23,6 +23,7 @@ public class CountryFragment extends AbstractListFragment {
         CONTENT_URI = Countries.CONTENT_URI;
         PROJECTION = Countries.PROJECTION_ALL;
         SORT_ORDER = Countries.SORT_ORDER_DEFAULT;
+        WHERE_CLAUSE = null;
 
         displayedRows = new String[]{Countries.COUNTRY};
         NEXT_TAB_NUMBER = 1;

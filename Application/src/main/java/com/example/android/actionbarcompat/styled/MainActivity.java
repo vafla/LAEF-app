@@ -76,18 +76,21 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
         switch (tab.getPosition()) {
             case 0:
                 countryFragment = new CountryFragment();
+                setFilterItem(null);
                 getSupportFragmentManager().beginTransaction().replace(R.id.container,
                         countryFragment).commit();
                 Log.d("MainActivity", "onTabSelect country");
                 break;
             case 1:
                 organisationFragment = new OrganisationFragment();
+                organisationFragment.setArguments(createQueryBundle());
                 getSupportFragmentManager().beginTransaction().replace(R.id.container,
                         organisationFragment).commit();
                 Log.d("MainActivity", "onTabSelect organisation");
                 break;
             case 2:
                 nameFragment = new NameFragment();
+                nameFragment.setArguments(createQueryBundle());
                 getSupportFragmentManager().beginTransaction().replace(R.id.container,
                         nameFragment).commit();
                 Log.d("MainActivity", "onTabSelect name");
@@ -130,5 +133,24 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
         // This is called when a previously selected tab is selected again.
         Log.d("MainActivity", "onTabReselect");
+    }
+
+    public String getFilterItem() {
+        return m_filterItem;
+    }
+
+    public void setFilterItem(String filterItem) {
+        m_filterItem = filterItem;
+    }
+
+    private Bundle createQueryBundle() {
+
+        if (m_filterItem != null) {
+            Bundle returnBundle = new Bundle();
+            returnBundle.putStringArray("filterid", new String[]{m_filterItem});
+            return returnBundle;
+        }
+        return null;
+
     }
 }

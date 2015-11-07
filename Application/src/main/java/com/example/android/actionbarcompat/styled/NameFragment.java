@@ -17,6 +17,7 @@ public class NameFragment extends AbstractListFragment {
         CONTENT_URI = Names.CONTENT_URI;
         PROJECTION = Names.PROJECTION_ALL;
         SORT_ORDER = Names.SORT_ORDER_DEFAULT;
+        WHERE_CLAUSE = Names.ORGANISATION_ID + "=?";
 
         displayedRows = new String[]{Names.NAME};
     }

@@ -12,6 +12,7 @@ public class OrganisationFragment extends AbstractListFragment {
         CONTENT_URI = Organisation.CONTENT_URI;
         PROJECTION = Organisation.PROJECTION_ALL;
         SORT_ORDER = Organisation.SORT_ORDER_DEFAULT;
+        WHERE_CLAUSE = Organisation.COUNTRY_ID + "=?";
 
         displayedRows = new String[]{Organisation.ORGANISATION};
         NEXT_TAB_NUMBER = 2;

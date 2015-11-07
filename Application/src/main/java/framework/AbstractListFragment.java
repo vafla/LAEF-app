@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.android.actionbarcompat.styled.MainActivity;
 import com.example.android.actionbarcompat.styled.R;
@@ -24,10 +25,12 @@ import com.example.android.actionbarcompat.styled.R;
  */
 public abstract class AbstractListFragment extends ListFragment implements LoaderManager.LoaderCallbacks<Cursor> {
 
+    private String TAG = "Abstract List Fragement";
     protected Uri CONTENT_URI;
     protected String[] PROJECTION;
     protected String SORT_ORDER;
 
+    protected String WHERE_CLAUSE;
     protected String[] displayedRows;
 
     protected int NEXT_TAB_NUMBER;
@@ -36,6 +39,9 @@ public abstract class AbstractListFragment extends ListFragment implements Loade
 
     @Override
     public void onCreate(Bundle bundle) {
+        if (bundle != null) {
+            Log.d(TAG, "on create: " + bundle.toString());
+        }
         super.onCreate(bundle);
 
         int[] bindingFields = {android.R.id.text1};
@@ -45,6 +51,7 @@ public abstract class AbstractListFragment extends ListFragment implements Loade
                 android.R.layout.simple_list_item_1, null, displayedRows, bindingFields, 0);
 
         setListAdapter(simpleCursorAdapter);
+
         getLoaderManager().initLoader(0, null, this);
     }
 
@@ -55,7 +62,12 @@ public abstract class AbstractListFragment extends ListFragment implements Loade
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
-        Log.d("AbstractFragment", "onListItemClick");
+        Log.d(TAG, "onListItemClick");
+        Cursor cursor = ((SimpleCursorAdapter) l.getAdapter()).getCursor();
+        cursor.moveToPosition(position);
+
+        Toast.makeText(getActivity(), cursor.getString(0), Toast.LENGTH_LONG).show();
+        ((MainActivity) getActivity()).setFilterItem(cursor.getString(0));
         ActionBar.Tab tab = ((MainActivity) getActivity()).getSupportActionBar().getTabAt(NEXT_TAB_NUMBER);
         ((MainActivity) getActivity()).getSupportActionBar().selectTab(tab);
 
@@ -63,7 +75,15 @@ public abstract class AbstractListFragment extends ListFragment implements Loade
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-        return new CursorLoader(getActivity(), CONTENT_URI, PROJECTION, null, null, SORT_ORDER);
+        Log.d(TAG, "onCreateLoader " + id);
+        Bundle argBundle = this.getArguments();
+        if (argBundle != null) {
+            final String[] whereArgs = argBundle.getStringArray("filterid");
+            return new CursorLoader(getActivity(), CONTENT_URI, PROJECTION, WHERE_CLAUSE, whereArgs,
+                    SORT_ORDER);
+        }
+        return new CursorLoader(getActivity(), CONTENT_URI, PROJECTION, null, null,
+                SORT_ORDER);
     }
 
     @Override
@@ -77,4 +97,5 @@ public abstract class AbstractListFragment extends ListFragment implements Loade
     public void onLoaderReset(Loader<Cursor> loader) {
         ((SimpleCursorAdapter) this.getListAdapter()).swapCursor(null);
     }
+
 }
