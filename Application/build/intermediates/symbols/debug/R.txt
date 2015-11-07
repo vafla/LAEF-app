@@ -316,10 +316,11 @@ int id center_vertical 0x7f0a0014
 int id checkbox 0x7f0a003c
 int id clip_horizontal 0x7f0a0015
 int id clip_vertical 0x7f0a0016
-int id close_dialog_button 0x7f0a0054
+int id close_dialog_button 0x7f0a0055
 int id collapseActionView 0x7f0a0023
-int id container 0x7f0a0055
+int id container 0x7f0a0056
 int id default_activity_button 0x7f0a0037
+int id description 0x7f0a0054
 int id dialog 0x7f0a0027
 int id disableHome 0x7f0a0007
 int id dropdown 0x7f0a0028
@@ -340,9 +341,9 @@ int id left 0x7f0a001b
 int id left_icon 0x7f0a0042
 int id listMode 0x7f0a0004
 int id list_item 0x7f0a0038
-int id menu_location 0x7f0a0057
-int id menu_refresh 0x7f0a0056
-int id menu_settings 0x7f0a0058
+int id menu_location 0x7f0a0058
+int id menu_refresh 0x7f0a0057
+int id menu_settings 0x7f0a0059
 int id middle 0x7f0a0020
 int id never 0x7f0a0025
 int id none 0x7f0a0021

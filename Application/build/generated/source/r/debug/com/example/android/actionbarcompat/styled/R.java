@@ -1062,10 +1062,11 @@ containing a value of this type.
         public static final int checkbox=0x7f0a003c;
         public static final int clip_horizontal=0x7f0a0015;
         public static final int clip_vertical=0x7f0a0016;
-        public static final int close_dialog_button=0x7f0a0054;
+        public static final int close_dialog_button=0x7f0a0055;
         public static final int collapseActionView=0x7f0a0023;
-        public static final int container=0x7f0a0055;
+        public static final int container=0x7f0a0056;
         public static final int default_activity_button=0x7f0a0037;
+        public static final int description=0x7f0a0054;
         public static final int dialog=0x7f0a0027;
         public static final int disableHome=0x7f0a0007;
         public static final int dropdown=0x7f0a0028;
@@ -1086,9 +1087,9 @@ containing a value of this type.
         public static final int left_icon=0x7f0a0042;
         public static final int listMode=0x7f0a0004;
         public static final int list_item=0x7f0a0038;
-        public static final int menu_location=0x7f0a0057;
-        public static final int menu_refresh=0x7f0a0056;
-        public static final int menu_settings=0x7f0a0058;
+        public static final int menu_location=0x7f0a0058;
+        public static final int menu_refresh=0x7f0a0057;
+        public static final int menu_settings=0x7f0a0059;
         public static final int middle=0x7f0a0020;
         public static final int never=0x7f0a0025;
         public static final int none=0x7f0a0021;
