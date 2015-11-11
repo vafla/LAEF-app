@@ -1,4 +1,4 @@
-package com.example.android.actionbarcompat.styled;
+package al.laefapp.main;
 
 import android.database.Cursor;
 import android.os.Bundle;
@@ -8,7 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 
-import database.ParticipantContract.Names;
+import al.laefapp.database.ParticipantContract.Names;
 import framework.AbstractListFragment;
 
 /**

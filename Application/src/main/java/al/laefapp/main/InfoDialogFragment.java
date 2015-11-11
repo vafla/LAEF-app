@@ -1,4 +1,4 @@
-package com.example.android.actionbarcompat.styled;
+package al.laefapp.main;
 
 import android.app.Dialog;
 import android.graphics.Color;
@@ -23,15 +23,15 @@ public class InfoDialogFragment extends DialogFragment {
         dialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         dialog.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        dialog.setContentView(R.layout.dialogbox);
+        dialog.setContentView(al.laefapp.main.R.layout.dialogbox);
         dialog.getWindow().setBackgroundDrawable(
                 new ColorDrawable(Color.WHITE));
         dialog.show();
         Bundle bundle = getArguments();
         if (bundle != null) {
-            m_name = (TextView) dialog.findViewById(R.id.participant_name);
+            m_name = (TextView) dialog.findViewById(al.laefapp.main.R.id.participant_name);
             m_name.setText(bundle.getString("name"));
-            m_description = (TextView) dialog.findViewById(R.id.description);
+            m_description = (TextView) dialog.findViewById(al.laefapp.main.R.id.description);
             m_description.setText(bundle.getString("description"));
         }
         return dialog;

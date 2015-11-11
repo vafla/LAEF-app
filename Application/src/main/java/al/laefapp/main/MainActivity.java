@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.actionbarcompat.styled;
+package al.laefapp.main;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
@@ -42,7 +42,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.mainactivity);
+        setContentView(al.laefapp.main.R.layout.mainactivity);
 
         //String with file name + loading file
         String filename = "mockSheet.xls";
@@ -65,7 +65,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate menu from menu resource (res/menu/main)
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(al.laefapp.main.R.menu.main, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -77,21 +77,21 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
             case 0:
                 countryFragment = new CountryFragment();
                 setFilterItem(null);
-                getSupportFragmentManager().beginTransaction().replace(R.id.container,
+                getSupportFragmentManager().beginTransaction().replace(al.laefapp.main.R.id.container,
                         countryFragment).commit();
                 Log.d("MainActivity", "onTabSelect country");
                 break;
             case 1:
                 organisationFragment = new OrganisationFragment();
                 organisationFragment.setArguments(createQueryBundle());
-                getSupportFragmentManager().beginTransaction().replace(R.id.container,
+                getSupportFragmentManager().beginTransaction().replace(al.laefapp.main.R.id.container,
                         organisationFragment).commit();
                 Log.d("MainActivity", "onTabSelect organisation");
                 break;
             case 2:
                 nameFragment = new NameFragment();
                 nameFragment.setArguments(createQueryBundle());
-                getSupportFragmentManager().beginTransaction().replace(R.id.container,
+                getSupportFragmentManager().beginTransaction().replace(al.laefapp.main.R.id.container,
                         nameFragment).commit();
                 Log.d("MainActivity", "onTabSelect name");
                 break;

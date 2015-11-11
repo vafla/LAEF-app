@@ -11,9 +11,9 @@ import android.util.Log;
 
 import java.io.InputStream;
 
-import database.ParticipantContract.Countries;
-import database.ParticipantContract.Names;
-import database.ParticipantContract.Organisation;
+import al.laefapp.database.ParticipantContract.Countries;
+import al.laefapp.database.ParticipantContract.Names;
+import al.laefapp.database.ParticipantContract.Organisation;
 import jxl.Cell;
 import jxl.Sheet;
 import jxl.Workbook;

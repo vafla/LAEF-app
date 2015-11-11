@@ -1,4 +1,4 @@
-package database;
+package al.laefapp.database;
 
 import android.content.ContentProvider;
 import android.content.ContentUris;
@@ -9,9 +9,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 
-import database.ParticipantContract.Countries;
-import database.ParticipantContract.Names;
-import database.ParticipantContract.Organisation;
+import al.laefapp.database.ParticipantContract.Countries;
+import al.laefapp.database.ParticipantContract.Names;
+import al.laefapp.database.ParticipantContract.Organisation;
 
 /**
  * Created by lovisa on 10/27/15.

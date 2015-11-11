@@ -5,6 +5,8 @@ ADDED from AndroidManifest.xml:18:1
 		ADDED from AndroidManifest.xml:18:11
 	package
 		ADDED from AndroidManifest.xml:19:5
+		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from AndroidManifest.xml:0:0
 	android:versionName
 		ADDED from AndroidManifest.xml:21:5
 	android:versionCode
@@ -35,7 +37,7 @@ MERGED from com.android.support:support-v4:23.0.0:22:5
 		ADDED from AndroidManifest.xml:33:9
 	android:theme
 		ADDED from AndroidManifest.xml:35:9
-activity#com.example.android.actionbarcompat.styled.MainActivity
+activity#al.laefapp.main.MainActivity
 ADDED from AndroidManifest.xml:37:9
 	android:name
 		ADDED from AndroidManifest.xml:37:19
@@ -55,7 +57,7 @@ ADDED from AndroidManifest.xml:50:13
 		ADDED from AndroidManifest.xml:51:17
 	android:value
 		ADDED from AndroidManifest.xml:52:17
-provider#database.ParticipantProvider
+provider#al.laefapp.database.ParticipantProvider
 ADDED from AndroidManifest.xml:56:9
 	android:exported
 		ADDED from AndroidManifest.xml:59:13

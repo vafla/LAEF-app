@@ -15,7 +15,7 @@
  limitations under the License.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.android.actionbarcompat.styled"
+    package="al.laefapp.main"
     android:installLocation="auto"
     android:versionCode="1"
     android:versionName="1.0" >
@@ -36,7 +36,7 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/Theme.Styled" >
-        <activity android:name="com.example.android.actionbarcompat.styled.MainActivity" >
+        <activity android:name="al.laefapp.main.MainActivity" >
 
             <!-- Launcher Intent filter -->
             <intent-filter>
@@ -56,7 +56,7 @@
         </activity>
 
         <provider
-            android:name="database.ParticipantProvider"
+            android:name="al.laefapp.database.ParticipantProvider"
             android:authorities="database.participants"
             android:exported="false" />
     </application>

@@ -1,4 +1,4 @@
-package database;
+package al.laefapp.database;
 
 import android.provider.BaseColumns;
 

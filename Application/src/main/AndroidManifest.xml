@@ -16,7 +16,7 @@
 -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.android.actionbarcompat.styled"
+    package="al.laefapp.main"
     android:versionCode="1"
     android:versionName="1.0"
     android:installLocation="auto">
@@ -55,7 +55,7 @@
 
         <provider
             android:authorities="database.participants"
-            android:name="database.ParticipantProvider"
+            android:name="al.laefapp.database.ParticipantProvider"
             android:exported="false" />
     </application>
 

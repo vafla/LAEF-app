@@ -35,6 +35,7 @@ android {
     buildToolsVersion "23.0.0"
 
     defaultConfig {
+        applicationId = "al.laefapp.main"
         minSdkVersion 8
         targetSdkVersion 23
     }

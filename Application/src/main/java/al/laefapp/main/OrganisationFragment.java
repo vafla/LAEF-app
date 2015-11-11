@@ -1,6 +1,6 @@
-package com.example.android.actionbarcompat.styled;
+package al.laefapp.main;
 
-import database.ParticipantContract.Organisation;
+import al.laefapp.database.ParticipantContract.Organisation;
 import framework.AbstractListFragment;
 
 /**

@@ -16,8 +16,8 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.android.actionbarcompat.styled.MainActivity;
-import com.example.android.actionbarcompat.styled.R;
+import al.laefapp.main.MainActivity;
+import al.laefapp.main.R;
 
 
 /**

@@ -13,11 +13,11 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-package com.example.android.actionbarcompat.styled.tests;
-
-import com.example.android.actionbarcompat.styled.*;
+package al.laefapp.main.tests;
 
 import android.test.ActivityInstrumentationTestCase2;
+
+import al.laefapp.main.MainActivity;
 
 /**
 * Tests for Styled sample.
@@ -53,5 +53,6 @@ public class SampleTests extends ActivityInstrumentationTestCase2<MainActivity> 
     /**
     * Add more tests below.
     */
+
 
 }
