@@ -106,6 +106,7 @@ public final class ParticipantContract {
          */
         public static final String CONTENT_ITEM_TYPE = ContentResolver.CURSOR_ITEM_BASE_TYPE + "/vnd.app.participants_names";
 
+        public static final String IMAGE = "image";
         /**
          * ID of the organisation the partcipant belongs to
          */
@@ -113,7 +114,7 @@ public final class ParticipantContract {
         /**
          * A projection of all columns in the items table.
          */
-        public static final String[] PROJECTION_ALL = {_ID, NAME, DESCRIPTION, ORGANISATION_ID};
+        public static final String[] PROJECTION_ALL = {_ID, NAME, DESCRIPTION, IMAGE, ORGANISATION_ID};
         /**
          * The default sort order for queries containing NAME fields.
          */

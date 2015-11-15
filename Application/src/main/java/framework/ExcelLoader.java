@@ -5,6 +5,7 @@ import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.util.Log;
@@ -12,6 +13,7 @@ import android.util.Log;
 import java.io.FileInputStream;
 import java.io.InputStream;
 
+import al.laefapp.database.DBBitmapUtility;
 import al.laefapp.database.ParticipantContract.Countries;
 import al.laefapp.database.ParticipantContract.Names;
 import al.laefapp.database.ParticipantContract.Organisation;
@@ -49,7 +51,7 @@ public class ExcelLoader {
             Workbook workbook = Workbook.getWorkbook(file);
             Log.d(TAG, "Creating workbook");
             Sheet sheet = workbook.getSheet(0);
-            int namePosition = 0, organisationPosition = 0, countryPosition = 0, infoPosition = 0;
+            int namePosition = 0, organisationPosition = 0, countryPosition = 0, infoPosition = 0, imagePos = 0;
             for (int col = 0; col < sheet.getColumns(); col++) {
                 Cell cell = sheet.getCell(col, 0);
                 if (cell.getContents().equalsIgnoreCase("name")) {
@@ -60,6 +62,8 @@ public class ExcelLoader {
                     countryPosition = col;
                 } else if (cell.getContents().equalsIgnoreCase("info")) {
                     infoPosition = col;
+                } else if (cell.getContents().equalsIgnoreCase("picture")) {
+                    imagePos = col;
                 }
             }
 
@@ -132,10 +136,19 @@ public class ExcelLoader {
                 // Load Name
                 Cell nameCell = sheet.getCell(namePosition, row);
                 Cell infoCell = sheet.getCell(infoPosition, row);
+                Cell imageURLCell = sheet.getCell(imagePos, row);
                 nameValues.clear();
                 nameValues.put(Names.NAME, nameCell.getContents());
                 nameValues.put(Names.DESCRIPTION, infoCell.getContents());
                 nameValues.put(Names.ORGANISATION_ID, orgID);
+
+                Bitmap image = new DownloadImageTask().execute(imageURLCell.getContents()).get();
+                if (image != null) {
+                    Log.d(TAG, nameCell.getContents() + " has an image");
+                    nameValues.put(Names.IMAGE, DBBitmapUtility.getBytes(image));
+                } else {
+                    Log.d(TAG, nameCell.getContents() + " has no image");
+                }
 
                 Uri nameUri = context.getContentResolver().insert(Names.CONTENT_URI, nameValues);
                 long nameID = ContentUris.parseId(nameUri);
@@ -151,6 +164,7 @@ public class ExcelLoader {
             e.printStackTrace();
         }
     }
+
 
 }
 

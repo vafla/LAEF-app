@@ -29,22 +29,16 @@
        Here we create all of the items to be displayed in the menu, setting support:showAsAction to
        define how the item should be displayed on the compatible Action Bar.
     -->
-    <item
-        android:id="@+id/menu_refresh"
-        android:icon="@drawable/ic_action_refresh"
-        android:title="@string/menu_refresh"
-        support:showAsAction="ifRoom"/>
 
     <item
-        android:id="@+id/menu_location"
+        android:id="@+id/menu_delete"
         android:icon="@drawable/ic_action_location"
-        android:title="@string/menu_location"
-        support:showAsAction="ifRoom"/>
-
+        android:title="@string/menu_delete"
+        support:showAsAction="never" />
     <item
-        android:id="@+id/menu_settings"
-        android:icon="@drawable/ic_action_settings"
-        android:title="@string/menu_settings"
+        android:id="@+id/menu_load"
+        android:icon="@drawable/ic_action_refresh"
+        android:title="@string/menu_load"
         support:showAsAction="never"/>
 
 </menu>

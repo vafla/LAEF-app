@@ -52,6 +52,7 @@ public class NameFragment extends AbstractListFragment {
         Bundle bundle = new Bundle();
         bundle.putString("name", cursor.getString(1));
         bundle.putString("description", cursor.getString(2));
+        bundle.putByteArray("image", cursor.getBlob(3));
         return bundle;
     }
 

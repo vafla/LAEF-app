@@ -4,13 +4,13 @@ import android.provider.BaseColumns;
 
 /**
  * Created by lovisa on 10/28/15.
- * Database Schema for the the particiapant info
+ * Database Schema for the the participant info
  */
 interface DBSchema {
 
     String DB_NAME = "participantinfo.db";
     // If the Schema is changed the version needs to be updated for the changes to take effect
-    int VERSION = 8;
+    int VERSION = 9;
 
     String TABEL_COUNTRIES = "countries";
     String TABEL_ORGANISATIONS = "organisations";
@@ -21,6 +21,7 @@ interface DBSchema {
     String COL_ORGANISATION = "organisation";
     String COL_NAME = "name";
     String COL_DESCRIPTION = "description";
+    String COL_IMAGE = "image";
 
     String CREATE_TABLE_COUNTRIES =
             "CREATE TABLE " + TABEL_COUNTRIES + " ( "
@@ -38,6 +39,7 @@ interface DBSchema {
                     + COL_ID + " INTEGER  PRIMARY KEY AUTOINCREMENT, \n"
                     + COL_NAME + " TEXT NOT NULL, \n"
                     + COL_DESCRIPTION + " TEXT, \n"
+                    + COL_IMAGE + " BLOB, \n"
                     + COL_ORGANISATION + "_id INTEGER NOT NULL, \n" +
                     " CONSTRAINT unq UNIQUE ( " + COL_NAME + " , " + COL_ORGANISATION + "_id ))";
 

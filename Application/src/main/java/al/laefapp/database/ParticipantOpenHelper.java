@@ -15,8 +15,6 @@ public class ParticipantOpenHelper extends SQLiteOpenHelper {
 
     public ParticipantOpenHelper(Context context) {
         super(context, NAME, null, VERSION);
-
-
     }
 
     @Override

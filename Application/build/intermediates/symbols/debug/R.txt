@@ -171,11 +171,12 @@ int dimen cardview_default_elevation 0x7f060013
 int dimen cardview_default_radius 0x7f060014
 int dimen default_gap 0x7f060015
 int dimen horizontal_page_margin 0x7f060008
-int dimen margin_huge 0x7f060016
-int dimen margin_large 0x7f060017
-int dimen margin_medium 0x7f060018
-int dimen margin_small 0x7f060019
-int dimen margin_tiny 0x7f06001a
+int dimen imagesize 0x7f060016
+int dimen margin_huge 0x7f060017
+int dimen margin_large 0x7f060018
+int dimen margin_medium 0x7f060019
+int dimen margin_small 0x7f06001a
+int dimen margin_tiny 0x7f06001b
 int dimen vertical_page_margin 0x7f060009
 int drawable ab_bottom_solid_styled 0x7f020000
 int drawable ab_solid_styled 0x7f020001
@@ -316,12 +317,12 @@ int id center_vertical 0x7f0a0014
 int id checkbox 0x7f0a003c
 int id clip_horizontal 0x7f0a0015
 int id clip_vertical 0x7f0a0016
-int id close_dialog_button 0x7f0a0055
 int id collapseActionView 0x7f0a0023
-int id container 0x7f0a0056
+int id container 0x7f0a0055
 int id default_activity_button 0x7f0a0037
-int id description 0x7f0a0054
+int id description 0x7f0a0053
 int id dialog 0x7f0a0027
+int id dialogButtonOK 0x7f0a0054
 int id disableHome 0x7f0a0007
 int id dropdown 0x7f0a0028
 int id edit_query 0x7f0a0047
@@ -341,14 +342,12 @@ int id left 0x7f0a001b
 int id left_icon 0x7f0a0042
 int id listMode 0x7f0a0004
 int id list_item 0x7f0a0038
-int id menu_location 0x7f0a0058
-int id menu_refresh 0x7f0a0057
-int id menu_settings 0x7f0a0059
+int id menu_delete 0x7f0a0056
+int id menu_load 0x7f0a0057
 int id middle 0x7f0a0020
 int id never 0x7f0a0025
 int id none 0x7f0a0021
 int id normal 0x7f0a0005
-int id participant_name 0x7f0a0053
 int id progress_circular 0x7f0a0045
 int id progress_horizontal 0x7f0a0046
 int id radio 0x7f0a003e
@@ -427,11 +426,10 @@ int string abc_shareactionprovider_share_with 0x7f0b000b
 int string abc_shareactionprovider_share_with_application 0x7f0b000c
 int string app_name 0x7f0b000d
 int string close_button 0x7f0b000e
-int string intro_message 0x7f0b000f
-int string main_description 0x7f0b0010
-int string menu_location 0x7f0b0011
-int string menu_refresh 0x7f0b0012
-int string menu_settings 0x7f0b0013
+int string description 0x7f0b000f
+int string intro_message 0x7f0b0010
+int string menu_delete 0x7f0b0011
+int string menu_load 0x7f0b0012
 int style AppTheme 0x7f08003c
 int style CardView 0x7f08003d
 int style CardView_Dark 0x7f08003e
@@ -678,7 +676,7 @@ int styleable MenuItem_android_title 7
 int styleable MenuItem_android_titleCondensed 8
 int styleable MenuItem_android_visible 4
 int styleable MenuItem_showAsAction 13
-int[] styleable MenuView { 0x010100ae, 0x0101012c, 0x0101012d, 0x0101012e, 0x0101012f, 0x01010130, 0x01010131, 0x01160055 }
+int[] styleable MenuView { 0x010100ae, 0x0101012c, 0x0101012d, 0x0101012e, 0x0101012f, 0x01010130, 0x01010131, 0x0101052f }
 int styleable MenuView_android_headerBackground 4
 int styleable MenuView_android_horizontalDivider 2
 int styleable MenuView_android_itemBackground 5

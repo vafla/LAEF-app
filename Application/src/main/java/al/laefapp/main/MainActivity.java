@@ -16,6 +16,8 @@
 
 package al.laefapp.main;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
@@ -23,9 +25,11 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 
 import java.io.File;
 
+import al.laefapp.database.ParticipantContract;
 import framework.ExcelLoader;
 import framework.FileChooser;
 
@@ -50,7 +54,6 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
         super.onCreate(savedInstanceState);
         setContentView(al.laefapp.main.R.layout.mainactivity);
 
-
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
         boolean dialogShown = settings.getBoolean("dialogShown", false);
         if (!dialogShown) {
@@ -71,7 +74,6 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
         ab.addTab(ab.newTab().setText("Organisation").setTabListener(this));
         ab.addTab(ab.newTab().setText("Name").setTabListener(this));
 
-
     }
 
     @Override
@@ -81,6 +83,34 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
         return super.onCreateOptionsMenu(menu);
     }
 
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_load:
+                FileChooser fileChooser = new FileChooser(this).setFileListener(this);
+                fileChooser.showDialog();
+                return true;
+            case R.id.menu_delete:
+                new AlertDialog.Builder(this).setTitle("Delete Database")
+                        .setMessage("Are you sure you want to delete the database?")
+                        .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        })
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                deleteCurrentDatabase();
+                                dialog.dismiss();
+                            }
+                        })
+                        .show();
+                return true;
+            default:
+                return false;
+        }
+    }
     // Implemented from ActionBar.TabListener
     @Override
     public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
@@ -169,10 +199,22 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
 
     @Override
     public void fileSelected(File file) {
+        deleteCurrentDatabase();
         String filename = file.getPath();
         Log.d("MainActivity", filename);
         ExcelLoader excelLoader = new ExcelLoader(filename);
         excelLoader.loadFile(getApplicationContext());
+
+    }
+
+    private void deleteCurrentDatabase() {
+        try {
+            getContentResolver().delete(ParticipantContract.Countries.CONTENT_URI, null, null);
+            getContentResolver().delete(ParticipantContract.Organisation.CONTENT_URI, null, null);
+            getContentResolver().delete(ParticipantContract.Names.CONTENT_URI, null, null);
+        } catch (Exception e) {
+            Log.e("Delete Database failed", e.toString());
+        }
 
     }
 

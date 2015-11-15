@@ -2,54 +2,45 @@
 <items version="2" >
 
     <item
+        jar="/home/lovisa/workspace/apps/LAEF-app/Application/build/intermediates/exploded-aar/com.android.support/gridlayout-v7/23.0.0/jars/classes.jar"
+        jumboMode="false" revision="21.1.2" sha1="1618fd467fb5971c394741e8976ededb97aaee0a">
+        <dex
+            dex="/home/lovisa/workspace/apps/LAEF-app/Application/build/intermediates/pre-dexed/debug/classes-c74d2b89516374f79a4c2717ab3f4fa5d80fafb4.jar" />
+    </item>
+    <item
         jar="/home/lovisa/workspace/apps/LAEF-app/Application/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.0.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.0" sha1="1ccbc26be2c465c622a48310e8092241b01abe80">
+        jumboMode="false" revision="21.1.2" sha1="1ccbc26be2c465c622a48310e8092241b01abe80">
         <dex
             dex="/home/lovisa/workspace/apps/LAEF-app/Application/build/intermediates/pre-dexed/debug/classes-3b2dd88a7c10ce4e2dae87519fe7182e03b1ba64.jar" />
     </item>
     <item
+        jar="/home/lovisa/workspace/apps/LAEF-app/Application/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/jars/libs/internal_impl-23.0.0.jar"
+        jumboMode="false" revision="21.1.2" sha1="8bd336eeae661e8311330284897ee07f8ebaa297">
+        <dex
+            dex="/home/lovisa/workspace/apps/LAEF-app/Application/build/intermediates/pre-dexed/debug/internal_impl-23.0.0-3bf6b0e9d8953e1deb34f40685b80003b68d8caf.jar" />
+    </item>
+    <item
         jar="/home/lovisa/workspace/apps/LAEF-app/Application/build/intermediates/exploded-aar/com.android.support/appcompat-v7/18.0.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.0" sha1="8f11f56e350eacabf2273f646d981356eea0ed77">
+        jumboMode="false" revision="21.1.2" sha1="8f11f56e350eacabf2273f646d981356eea0ed77">
         <dex
             dex="/home/lovisa/workspace/apps/LAEF-app/Application/build/intermediates/pre-dexed/debug/classes-cfe2be788daf31f026457e49819a112703e79078.jar" />
     </item>
     <item
         jar="/home/lovisa/workspace/apps/LAEF-app/Application/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.0" sha1="8413c27b45b7fe61dca4a98159f65e2cee215f5a">
+        jumboMode="false" revision="21.1.2" sha1="8413c27b45b7fe61dca4a98159f65e2cee215f5a">
         <dex
             dex="/home/lovisa/workspace/apps/LAEF-app/Application/build/intermediates/pre-dexed/debug/classes-6276058631c04425c24214af3970dd33a4a9fa8d.jar" />
     </item>
-    <item jar="/home/lovisa/workspace/apps/LAEF-app/jxl/jxl.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="7faf62e0697f7a88954622dfe8c8de33ed142ac7">
-        <dex
-            dex="/home/lovisa/workspace/apps/LAEF-app/Application/build/intermediates/pre-dexed/debug/jxl-2a3077b0f48faa9a706f0ac80405cb1157b565a2.jar" />
-    </item>
-    <item
-        jar="/home/lovisa/workspace/apps/LAEF-app/Application/build/intermediates/exploded-aar/com.android.support/gridlayout-v7/23.0.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.0" sha1="1618fd467fb5971c394741e8976ededb97aaee0a">
-        <dex
-            dex="/home/lovisa/workspace/apps/LAEF-app/Application/build/intermediates/pre-dexed/debug/classes-c74d2b89516374f79a4c2717ab3f4fa5d80fafb4.jar" />
-    </item>
-    <item
-        jar="/home/lovisa/workspace/apps/LAEF-app/Application/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/jars/libs/internal_impl-23.0.0.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="8bd336eeae661e8311330284897ee07f8ebaa297">
-        <dex
-            dex="/home/lovisa/workspace/apps/LAEF-app/Application/build/intermediates/pre-dexed/debug/internal_impl-23.0.0-3bf6b0e9d8953e1deb34f40685b80003b68d8caf.jar" />
-    </item>
     <item
         jar="/home/lovisa/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.0/support-annotations-23.0.0.jar"
-        jumboMode="false"
-        revision="23.0.0" sha1="990e7f98a7bad86a40b1f0bcfeb039023afd0839">
+        jumboMode="false" revision="21.1.2" sha1="990e7f98a7bad86a40b1f0bcfeb039023afd0839">
         <dex
             dex="/home/lovisa/workspace/apps/LAEF-app/Application/build/intermediates/pre-dexed/debug/support-annotations-23.0.0-00c6c553ec1ff71380da8f0afa945922d21747a6.jar" />
+    </item>
+    <item jar="/home/lovisa/workspace/apps/LAEF-app/jxl/jxl.jar"
+        jumboMode="false" revision="21.1.2" sha1="7faf62e0697f7a88954622dfe8c8de33ed142ac7">
+        <dex
+            dex="/home/lovisa/workspace/apps/LAEF-app/Application/build/intermediates/pre-dexed/debug/jxl-2a3077b0f48faa9a706f0ac80405cb1157b565a2.jar" />
     </item>
 
 </items>

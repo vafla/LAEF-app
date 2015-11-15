@@ -138,6 +138,24 @@ public class ParticipantProvider extends ContentProvider {
 
     @Override
     public int delete(Uri uri, String selection, String[] selectionArgs) {
+        SQLiteDatabase db = participantOpenHelper.getWritableDatabase();
+        long id = 0L;
+        switch (URI_MATCHER.match(uri)) {
+            case COUNTRY_LIST:
+                db.execSQL("delete from " + DBSchema.TABEL_COUNTRIES);
+                break;
+            case ORGANISATION_LIST:
+                db.execSQL("delete from " + DBSchema.TABEL_ORGANISATIONS);
+                break;
+            case NAMES_LIST:
+                db.execSQL("delete from " + DBSchema.TABEL_NAMES);
+                break;
+            default:
+                throw new IllegalArgumentException("Unsupported URI for insertion " + uri);
+
+        }
+
+        getContext().getContentResolver().notifyChange(uri, null);
         return 0;
     }
 
