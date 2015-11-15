@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.util.Log;
 
+import java.io.FileInputStream;
 import java.io.InputStream;
 
 import al.laefapp.database.ParticipantContract.Countries;
@@ -42,7 +43,7 @@ public class ExcelLoader {
 
         Log.d(TAG, "Loading file: " + m_filename);
         try {
-            InputStream file = context.getAssets().open(m_filename);
+            InputStream file = new FileInputStream(m_filename);
             Log.d(TAG, m_filename + " has been loaded");
             // if (file.available()!=0) {
             Workbook workbook = Workbook.getWorkbook(file);

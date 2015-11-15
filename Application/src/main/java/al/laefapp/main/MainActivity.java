@@ -16,6 +16,7 @@
 
 package al.laefapp.main;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
@@ -23,7 +24,10 @@ import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 
+import java.io.File;
+
 import framework.ExcelLoader;
+import framework.FileChooser;
 
 
 /**
@@ -32,23 +36,31 @@ import framework.ExcelLoader;
  * This is the Main Activity class that extends ActionBar Activity.
  * It createes an actionbar with three tabs, each it's own fragment
  */
-public class MainActivity extends ActionBarActivity implements ActionBar.TabListener {
+public class MainActivity extends ActionBarActivity implements ActionBar.TabListener, FileChooser.FileSelectedListener {
 
     String m_filterItem = null;
     CountryFragment countryFragment;
     OrganisationFragment organisationFragment;
     NameFragment nameFragment;
 
+    public static final String PREFS_NAME = "LaefAPP";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(al.laefapp.main.R.layout.mainactivity);
 
-        //String with file name + loading file
-        String filename = "mockSheet.xls";
-        ExcelLoader excelLoader = new ExcelLoader(filename);
-        excelLoader.loadFile(getApplicationContext());
 
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+        boolean dialogShown = settings.getBoolean("dialogShown", false);
+        if (!dialogShown) {
+            FileChooser fileChooser = new FileChooser(this).setFileListener(this);
+            fileChooser.showDialog();
+
+            SharedPreferences.Editor editor = settings.edit();
+            editor.putBoolean("dialogShown", true);
+            editor.commit();
+        }
 
         // Set the Action Bar to use tabs for navigation
         ActionBar ab = getSupportActionBar();
@@ -122,6 +134,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
                 getSupportFragmentManager().beginTransaction().remove(
                         nameFragment).commit();
                 Log.d("MainActivity", "onTabUnSelect name");
+                setFilterItem(null);
                 break;
             default:
                 break;
@@ -153,4 +166,14 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
         return null;
 
     }
+
+    @Override
+    public void fileSelected(File file) {
+        String filename = file.getPath();
+        Log.d("MainActivity", filename);
+        ExcelLoader excelLoader = new ExcelLoader(filename);
+        excelLoader.loadFile(getApplicationContext());
+
+    }
+
 }

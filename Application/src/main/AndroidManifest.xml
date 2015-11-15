@@ -41,7 +41,6 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
             <!--
                 In this example set the Activity to have a split action bar when the device's
                 display is narrow. In ActionBarCompat this is done by setting the
