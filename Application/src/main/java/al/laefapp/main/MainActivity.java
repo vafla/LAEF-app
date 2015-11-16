@@ -52,6 +52,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(al.laefapp.main.R.layout.mainactivity);
 
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);

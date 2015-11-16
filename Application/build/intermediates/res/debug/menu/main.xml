@@ -34,7 +34,7 @@
         android:id="@+id/menu_delete"
         android:icon="@drawable/ic_action_location"
         android:title="@string/menu_delete"
-        support:showAsAction="never"/>
+        support:showAsAction="never" />
     <item
         android:id="@+id/menu_load"
         android:icon="@drawable/ic_action_refresh"
