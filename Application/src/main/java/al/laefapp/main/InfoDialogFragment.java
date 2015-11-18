@@ -1,12 +1,15 @@
 package al.laefapp.main;
 
 import android.app.Dialog;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import al.laefapp.database.DBBitmapUtility;
@@ -18,7 +21,7 @@ import al.laefapp.database.DBBitmapUtility;
 public class InfoDialogFragment extends DialogFragment {
 
     TextView m_description;
-    ImageView m_image;
+    ImageView imageView;
     Button m_button;
 
     @Override
@@ -42,18 +45,45 @@ public class InfoDialogFragment extends DialogFragment {
             m_description.setText(bundle.getString("description"));
             Log.d("Info Dialog Fragment", m_description.toString());
 
-            m_image = (ImageView) dialog.findViewById(R.id.image);
+            imageView = (ImageView) dialog.findViewById(R.id.image);
             byte[] imageByteArray = bundle.getByteArray("image");
             if (imageByteArray != null) {
-                m_image.setImageBitmap(DBBitmapUtility.getImage(imageByteArray));
+                Bitmap image = DBBitmapUtility.getImage(imageByteArray);
+                float scalingFactor = getBitmapScalingFactor(image, imageView);
+                imageView.setImageBitmap(scaleBitmap(image, scalingFactor));
             } else {
                 Log.d("Info Dialog Fragment", "image byte array is null");
-                m_image.setImageResource(R.drawable.ic_launcher);
+                imageView.setImageResource(R.drawable.ic_launcher);
             }
 
         }
         return dialog;
     }
+
+    private Bitmap scaleBitmap(Bitmap bm, float scalingFactor) {
+        int scalingHeight = (int) (bm.getHeight() * scalingFactor);
+        int scalingWidth = (int) (bm.getWidth() * scalingFactor);
+        return Bitmap.createScaledBitmap(bm, scalingWidth, scalingHeight, true);
+    }
+
+
+    private float getBitmapScalingFactor(Bitmap bm, ImageView imageView) {
+
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getActivity().getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+
+        int widthpxl = displayMetrics.widthPixels;
+        RelativeLayout.LayoutParams layoutParams =
+                (RelativeLayout.LayoutParams) imageView.getLayoutParams();
+
+        int leftmargin = layoutParams.leftMargin;
+        int rightmargin = layoutParams.rightMargin;
+
+        int imageMaxWidth = widthpxl / 2 - (leftmargin + rightmargin);
+        // Calculate scaling factor and return it
+        return ((float) imageMaxWidth / (float) bm.getWidth());
+    }
+
 
 
 }

@@ -25,6 +25,6 @@
         android:text="@android:string/ok"
         android:layout_marginTop="15dp"
         android:layout_marginRight="15dp"
-        android:layout_below="@id/description" />
+        android:layout_alignParentBottom="true" />
 
 </RelativeLayout>

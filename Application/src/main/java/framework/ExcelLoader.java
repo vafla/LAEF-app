@@ -20,6 +20,7 @@ import al.laefapp.database.ParticipantContract.Organisation;
 import jxl.Cell;
 import jxl.Sheet;
 import jxl.Workbook;
+import jxl.WorkbookSettings;
 import jxl.read.biff.BiffException;
 
 // jxl Imports
@@ -46,9 +47,9 @@ public class ExcelLoader {
         Log.d(TAG, "Loading file: " + m_filename);
         try {
             InputStream file = new FileInputStream(m_filename);
-            Log.d(TAG, m_filename + " has been loaded");
-            // if (file.available()!=0) {
-            Workbook workbook = Workbook.getWorkbook(file);
+            WorkbookSettings ws = new WorkbookSettings();
+            ws.setEncoding("Cp1252");
+            Workbook workbook = Workbook.getWorkbook(file, ws);
             Log.d(TAG, "Creating workbook");
             Sheet sheet = workbook.getSheet(0);
             int namePosition = 0, organisationPosition = 0, countryPosition = 0, infoPosition = 0, imagePos = 0;
